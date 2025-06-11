@@ -1,0 +1,25 @@
+body {
+    font-family: sans-serif;
+    text-align: center;
+    background: #fdfdfd;
+    margin: 0;
+    padding: 0;
+}
+nav a {
+    padding: 10px 15px;
+    text-decoration: none;
+    background: #007acc;
+    color: white;
+    border-radius: 5px;
+}
+.gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+.gallery img {
+    width: 300px;
+    margin: 10px;
+    border-radius: 10px;
+}
