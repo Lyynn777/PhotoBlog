@@ -16,17 +16,14 @@ pipeline {
         stage('Deploy to GitHub Pages') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'github-token', usernameVariable: 'USERNAME', passwordVariable: 'TOKEN')]) {
-                    sh '''
-                        git config --global user.name "Lyynn"
-                        git config --global user.email "you@example.com"
-                        
-                        git remote set-url origin https://${USERNAME}:${TOKEN}@github.com/Lyynn777/PhotoBlog.git
-
-                        git checkout main
-                        git add docs
-                        git commit -m "Automated deploy to GitHub Pages from Jenkins" || echo "No changes to commit"
-                        git push origin main
+                    bat '''
+                    git config --global user.email "p51061189@gmail.com"
+                    git config --global user.name "Jenkins CI"
+                    git add docs/
+                    git commit -m "Auto update from Jenkins"
+                    git push https://%TOKEN%@github.com/Lyynn777/PhotoBlog.git HEAD:main
                     '''
+
                 }
             }
         }
